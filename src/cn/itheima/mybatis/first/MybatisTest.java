@@ -14,7 +14,7 @@ import org.junit.Test;
 import cn.itheima.mybatis.po.User;
 
 public class MybatisTest {
-
+	
 	private SqlSessionFactory sqlSessionFactory = null;
 	
 	@Before
@@ -29,7 +29,7 @@ public class MybatisTest {
 
 	@Test
 	public void getUserById() throws Exception {
-
+		
 		//第四步：创建SQLSession对象
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		//第五步：使用SqlSession对象执行查询，得到User对象。
@@ -37,7 +37,6 @@ public class MybatisTest {
 		User user = sqlSession.selectOne("getUserById", 10);
 		//第六步：打印结果
 		System.out.println(user);
-		System.out.println("第一次");
 		//第七步：释放资源
 		sqlSession.close();
 	}
@@ -77,7 +76,7 @@ public class MybatisTest {
 	public void deleteUser() throws Exception {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		//删除用户
-		sqlSession.delete("deleteUser",2);
+		sqlSession.delete("deleteUser",30);
 		//提交事务
 		sqlSession.commit();
 		sqlSession.close();
@@ -90,7 +89,7 @@ public class MybatisTest {
 		//创建一个User对象
 		User user = new User() ;
 		user.setUsername("张角1");
-		user.setId(27);
+		user.setId(31);
 		//更新用户
 		sqlSession.update("updateUser", user);
 		//提交事务
