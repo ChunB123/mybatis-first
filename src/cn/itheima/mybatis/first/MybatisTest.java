@@ -14,7 +14,7 @@ import org.junit.Test;
 import cn.itheima.mybatis.po.User;
 
 public class MybatisTest {
-	
+
 	private SqlSessionFactory sqlSessionFactory = null;
 	
 	@Before
@@ -37,6 +37,7 @@ public class MybatisTest {
 		User user = sqlSession.selectOne("getUserById", 10);
 		//第六步：打印结果
 		System.out.println(user);
+		System.out.println("第一次");
 		//第七步：释放资源
 		sqlSession.close();
 	}
